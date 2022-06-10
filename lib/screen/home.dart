@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter_project_seun/constant/colors.dart';
+import 'package:new_flutter_project_seun/screen/resgistration_page.dart';
 import 'package:new_flutter_project_seun/widgets/text_form_field.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,8 +15,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
+      body: SingleChildScrollView(child:SafeArea(
+        child:
+
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -29,6 +32,7 @@ class _HomeState extends State<Home> {
                   children: [
                     Textform(
                       textlabel: "Email",
+                      changelabel: Text("Email"),
                       iconPrefix: Icon(Icons.email),
 
 
@@ -36,13 +40,39 @@ class _HomeState extends State<Home> {
                     Textform(
                       textlabel: "Password",
                       iconPrefix: Icon(Icons.lock),
+                      changelabel: Text("Password"),
                     ),
-                    ElevatedButton(onPressed: () => login(), child: Text("Login"))
+
+                    ElevatedButton(onPressed: () => login(), child: Text("Login")),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height*.2
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don't have an account? ",style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        ),),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>register()));
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: MyColor.orange,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ))
           ],
         ),
       ),
+      )
     );
   }
 

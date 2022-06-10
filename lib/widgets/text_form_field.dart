@@ -4,7 +4,7 @@ class Textform extends StatefulWidget {
   Icon? iconPrefix;
   Text? changelabel;
   TextEditingController? controller;
-   Textform({Key? key, this.iconPrefix, this.textlabel, this.controller}) : super(key: key);
+   Textform({Key? key, this.iconPrefix, this.textlabel, this.controller, this.changelabel}) : super(key: key);
 
   @override
   State<Textform> createState() => _TextformState();
@@ -36,4 +36,5 @@ class _TextformState extends State<Textform> {
       ),
     );
   }
+
 }
